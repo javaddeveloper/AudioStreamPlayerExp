@@ -496,7 +496,8 @@ public class AudioManager{
                 }
             }
         };
-        activity.registerReceiver(updateUIReciver,filter);
+        //activity.registerReceiver(updateUIReciver,filter);
+        activity.registerReceiver(updateUIReciver,filter,RECEIVER_EXPORTED);
     }
 
     public void pausePlaying() {
