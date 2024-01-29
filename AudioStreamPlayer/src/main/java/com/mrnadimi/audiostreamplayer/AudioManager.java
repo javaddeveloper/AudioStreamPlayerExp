@@ -496,7 +496,11 @@ public class AudioManager{
                 }
             }
         };
-        activity.registerReceiver(updateUIReciver,filter,RECEIVER_EXPORTED);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(broadcastReceiver, intentFilter, RECEIVER_EXPORTED)
+        }else {
+            registerReceiver(broadcastReceiver, intentFilter)
+        }
     }
 
     public void pausePlaying() {
